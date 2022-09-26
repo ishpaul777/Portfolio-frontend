@@ -1,0 +1,53 @@
+@keyframes rotate-full {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animated {
+  animation-duration: 10s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.rotate {
+  animation: rotation-full 5s infinite linear;
+}
+
+.rotate-full {
+  width: 60vw;
+  position: absolute;
+  opacity: 0.8;
+  z-index: -1;
+  right: 13vw;
+  top: -25vh;
+  animation: infinite-spinning 18s infinite linear;
+}
+
+@media only screen
+  and (max-width: 768px) {
+  /* Styles */
+  .rotate-full {
+    width: 65vh;
+    right: 0;
+    left: -28vh;
+    top: 5vh;
+  }
+}

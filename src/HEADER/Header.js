@@ -1,11 +1,12 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {
   Box, AppBar, Container, Toolbar, Typography,
   ListItemText, ListItemButton, ListItem, List, SwipeableDrawer, Button,
 } from '@mui/material';
+// import { motion, Variants } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
+import Navlinks from './Navlinks_desktop';
 import menuIcon from './assets/menu-icon.png';
 
 const Header = (props) => {
@@ -35,8 +36,22 @@ const Header = (props) => {
       <List>
         <Box
           onClick={(event) => toggleDrawer(event)}
-          sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'end' }}
+          sx={{ display: { xs: 'flex', md: 'none' }, alignnItems: 'center', justifyContent: 'space-between' }}
         >
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              p: 2,
+              fontWeight: 600,
+              color: 'primary.main',
+              textDecoration: 'none',
+            }}
+          >
+            {logoText}
+          </Typography>
           <CloseIcon sx={{ p: 1, pr: 3 }} />
         </Box>
         {pages.map((text) => (
@@ -47,7 +62,7 @@ const Header = (props) => {
           </ListItem>
         ))}
         <Box textAlign="center" sx={{ mt: 1 }}>
-          <Button color="primary" size="large" variant="contained"> View Work </Button>
+          <Button color="primary" size="large" variant="contained" sx={{ borderRadius: '8px' }}> View Work </Button>
         </Box>
       </List>
     </Box>
@@ -55,7 +70,7 @@ const Header = (props) => {
   //   !------!mobile menu logic endss ---
   //   ?------ Full Nav bar ---
   return (
-    <AppBar position="static" elevation={0} sx={{ background: 'transparent' }}>
+    <AppBar position="static" elevation={0} sx={{ background: 'transparent', padding: '.8rem' }}>
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
@@ -66,21 +81,23 @@ const Header = (props) => {
           }}
         >
           {/* logo on Nav */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              // ml: 3,
-              fontWeight: 600,
-              color: 'primary.main',
-              textDecoration: 'none',
-              // display: { xs: 'none', md: 'flex' },
-            }}
-          >
-            {logoText}
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <img src={logoImage} alt="menu" style={{ width: '3rem' }} />
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                fontWeight: 600,
+                color: 'primary.main',
+                textDecoration: 'none',
+              }}
+            >
+              {logoText}
+            </Typography>
+          </Box>
+          <Navlinks />
 
           {/* Toggle icon for mobile */}
           <Box
@@ -88,18 +105,18 @@ const Header = (props) => {
             sx={{ display: { xs: 'flex', md: 'none' } }}
           >
             <img src={menuIcon} alt="menu" style={{ width: '1.5rem' }} />
-          </Box>
 
-          {/* Toggle Drawer for mobile */}
-          <SwipeableDrawer
-            sx={{ display: { xs: 'flex', md: 'none' } }}
-            anchor="top"
-            open={menuToggle}
-            onClose={(event) => toggleDrawer(event)}
-            onOpen={(event) => toggleDrawer(event)}
-          >
-            {links()}
-          </SwipeableDrawer>
+            {/* Toggle Drawer for mobile */}
+            <SwipeableDrawer
+              sx={{ display: { xs: 'flex', md: 'none' } }}
+              anchor="top"
+              open={menuToggle}
+              onClose={(event) => toggleDrawer(event)}
+              onOpen={(event) => toggleDrawer(event)}
+            >
+              {links()}
+            </SwipeableDrawer>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
