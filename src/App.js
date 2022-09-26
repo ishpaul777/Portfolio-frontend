@@ -1,4 +1,3 @@
-import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -33,6 +32,12 @@ const data = {
     logoImage: logo,
     logoText: 'Ishpaul Singh',
   },
+  Homepage: {
+    HeroSection: {
+      headline: 'A developer passionate about creating beautiful user friendly products.',
+      subHeadline: 'Full Stack Developer Based in New Delhi, India, skilled with a keen eye for creating engaging UI, with solid backend system foundation.',
+    },
+  },
 };
 
 function App() {
@@ -52,7 +57,7 @@ function App() {
           <LinkedInIcon fontSize="large" sx={{ display: 'block', mb: 2, zIndex: '2' }} />
         </div>
         {/* Homepage */}
-        <Home />
+        <Home data={data.Homepage} />
       </div>
     </ThemeProvider>
   );
