@@ -28,7 +28,7 @@ const Header = (props) => {
   };
   const links = () => (
     <Box
-      sx={{ height: 'fit-content' }}
+      sx={{ height: 'fit-content', maxWidth: '100vw' }}
       role="presentation"
       onClick={(event) => toggleDrawer(event)}
       onKeyDown={(event) => toggleDrawer(event)}
@@ -81,14 +81,15 @@ const Header = (props) => {
           }}
         >
           {/* logo on Nav */}
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={logoImage} alt="menu" style={{ width: '3rem' }} />
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <img src={logoImage} alt="menu" style={{ width: '6rem' }} />
             <Typography
               variant="h6"
               noWrap
               component="a"
               href="/"
               sx={{
+                // display: { xs: 'none', sm: 'inline' },
                 fontWeight: 600,
                 color: 'primary.main',
                 textDecoration: 'none',

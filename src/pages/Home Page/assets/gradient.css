@@ -41,13 +41,23 @@
   animation: infinite-spinning 18s infinite linear;
 }
 
+.box1 {
+  width: 40vw;
+  top: 5vh;
+}
+
 @media only screen
   and (max-width: 768px) {
   /* Styles */
   .rotate-full {
-    width: 65vh;
+    width: 60vh;
     right: 0;
     left: -28vh;
     top: 5vh;
+  }
+
+  .box1 {
+    width: 50vw;
+    left: -18vh;
   }
 }

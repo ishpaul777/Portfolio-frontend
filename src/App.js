@@ -3,7 +3,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Home from './pages/Home Page/home';
 import Header from './HEADER/Header';
-import logo from './assets/logo.svg';
+import logo from './assets/logo.png';
 
 const lightTheme = createTheme({
   palette: {
@@ -37,6 +37,32 @@ const data = {
       headline: 'A developer passionate about creating beautiful user friendly products.',
       subHeadline: 'Full Stack Developer Based in New Delhi, India, skilled with a keen eye for creating engaging UI, with solid backend system foundation.',
     },
+    testimoials: {
+      header: 'On Working with me',
+      persons: [
+        {
+          name: 'Lana Kinney',
+          position: 'Student Mentor @ Microverse',
+          image: 'https://source.unsplash.com/random/?headshot',
+          linkedin: 'https://www.linkedin.com/in/ishpaul-singh-264590226',
+          testimonial: 'Ishpaul is a guru at things UX design, consistently producing intuitive, modern, and bold designs. He is a natural problem solver in the design space so everyone went to him if they were stuck on a feature or flow.. Any business would be lucky to have him.',
+        },
+        {
+          name: 'Mike',
+          position: 'Student Mentor @ Microverse',
+          image: 'https://source.unsplash.com/random/?headshot',
+          linkedin: 'https://www.linkedin.com/in/ishpaul-singh-264590226',
+          testimonial: 'Ishpaul is a guru at things UX design, consistently producing intuitive, modern, and bold designs. He is a natural problem solver in the design space so everyone went to him if they were stuck on a feature or flow.. Any business would be lucky to have him.',
+        },
+        {
+          name: 'John Doe',
+          position: 'Student Mentor @ Microverse',
+          image: 'https://source.unsplash.com/random/?headshot',
+          linkedin: 'https://www.linkedin.com/in/ishpaul-singh-264590226',
+          testimonial: 'Ishpaul is a guru at things UX design, consistently producing intuitive, modern, and bold designs. He is a natural problem solver in the design space so everyone went to him if they were stuck on a feature or flow.. Any business would be lucky to have him.',
+        },
+      ],
+    },
   },
 };
 
@@ -53,8 +79,8 @@ function App() {
           bottom: '1rem',
         }}
         >
-          <GitHubIcon fontSize="large" sx={{ display: 'block', mb: 2, zIndex: '2' }} />
-          <LinkedInIcon fontSize="large" sx={{ display: 'block', mb: 2, zIndex: '2' }} />
+          <GitHubIcon fontSize="large" sx={{ display: 'block', mb: 2, zIndex: '1200' }} />
+          <LinkedInIcon fontSize="large" sx={{ display: 'block', mb: 2, zIndex: '1200' }} />
         </div>
         {/* Homepage */}
         <Home data={data.Homepage} />

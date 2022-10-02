@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
-  Typography, Box, Button, Card, CardActions, CardContent, Avatar,
+  Typography, Box,
 } from '@mui/material';
+import TestimonialCard from './testimonialCard';
 
-const TestimoialSection = () => (
+const TestimoialSection = ({ data }) => (
   <Box
     component="section"
     sx={{
@@ -24,11 +26,12 @@ const TestimoialSection = () => (
         wordWrap: 'break-word',
         width: '75vw',
         mb: '2rem',
+        mt: '2rem',
         color: 'primary.main',
         textDecoration: 'none',
       }}
     >
-      On Working with me
+      {data.header}
     </Typography>
     <Box sx={{
       display: 'flex',
@@ -38,60 +41,11 @@ const TestimoialSection = () => (
       alignItems: 'center',
     }}
     >
-      <Card sx={{ maxWidth: { xs: '80vw', md: '30vw', lg: '25vw' } }} elevation={3}>
-        <CardContent>
-          <Box sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            gap: '20px',
-            mb: '1.5rem',
-          }}
-          >
-            <Avatar
-              alt="Remy Sharp"
-              src="https://uploads-ssl.webflow.com/5fa25266badbdb239c79ef86/6003bc8a500ee553547067e4_1560732160364-p-500.jpeg"
-              sx={{ width: 90, height: 90 }}
-            />
-            <div>
-              <Typography
-                variant="h5"
-                component="h3"
-              >
-                Lana Kinney
-              </Typography>
-              <Typography variant="subtitle1" component="h3">
-                Student Mentor @ Microverse
-              </Typography>
-            </div>
-          </Box>
-          <Typography variant="body1" color="text.secondary">
-            <span style={{
-              fontWeight: '700', color: 'black',
-            }}
-            >
-              {' '}
-              &#8220;
-              {' '}
-            </span>
-            Ishpaul is a guru at things UX design, consistently producing intuitive, modern,
-            and bold designs. He is a natural problem solver in the design space so everyone went
-            to him if they were stuck on a feature or flow.. Any business would be lucky to have
-            him.
-            <span style={{
-              fontWeight: '700', color: 'black',
-            }}
-            >
-              {' '}
-              &#8220;
-              {' '}
-            </span>
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+      {
+        data.persons.map((person) => (
+          <TestimonialCard key={person.name} data={person} />
+        ))
+      }
     </Box>
   </Box>
 );
